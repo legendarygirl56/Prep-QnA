@@ -1,0 +1,47 @@
+/*A Product Array Puzzle
+Given an array arr[] of n integers, construct a Product Array prod[] (of same size) 
+such that prod[i] is equal to the product of all the elements of arr[] except arr[i]. 
+Solve it without division operator in O(n) time.*/
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+int main()
+{
+	ll n;
+	cin>>n;
+	ll a[n];
+	for(ll i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	
+	if(n==1)
+	{
+		cout<<"0";
+	}
+	else
+	{
+	ll p[n],temp=1;
+	for(ll i=0;i<n;i++)
+	{
+		p[i]=1;
+	}
+	for(ll i=0;i<n;i++)
+	{
+		p[i]*=temp;
+		temp*=a[i];//temp stores the prev value and gives the left array
+		//cout<<p[i]<<endl;
+	}
+	temp=1;
+	for(ll i=n-1;i>=0;i--)
+	{
+		p[i]*=temp;
+		temp*=a[i];//temp stores the next value and gives the right array
+	}
+	for(ll i=0;i<n;i++)
+	{
+		cout<<p[i]<<" ";
+	}
+	}
+}
