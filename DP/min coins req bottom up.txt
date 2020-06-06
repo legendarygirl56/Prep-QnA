@@ -1,0 +1,30 @@
+#include<bits/stdc++.h> //we need to give n rs.we have  1rs coin 7 rs coin and 10rs coin and find min coins to give
+using namespace std;
+#define ll long long
+
+ll mincoin(ll n)
+{
+	ll dp[100]={0};
+	dp[0]=0;
+	ll a=100000,b=100000,c=100000;
+	for(ll i=1;i<=n;i++)
+	{
+		if(i>=10)
+		{
+			a=dp[i-10]+1;
+		}
+		if(i>=7)
+		{
+			b=dp[i-7]+1;
+		}
+		c=dp[i-1]+1;
+		dp[i]=min(min(a,b),c);
+	}
+	return dp[n];
+}
+int main()
+{
+	ll n;
+	cin>>n;
+	cout<<mincoin(n)<<endl;
+}
