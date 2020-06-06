@@ -1,4 +1,4 @@
-#include<bits/stdc++.h> //we need to give n rs.we have  1rs coin 7 rs coin and 10rs coin and find min coins to give
+#include<bits/stdc++.h> //we need to give n rs.we have  1rs coin 7 rs coin and 10rs coin and find min number of coins to give to have a total of n rs.
 using namespace std;
 #define ll long long
 
