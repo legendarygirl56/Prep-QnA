@@ -1,0 +1,30 @@
+/*Recursive Wines problem
+IN ONE YEAR WE CAN SELL ONLY ONE BOTTLE EITHER THE FIRST ONE OR THE LAST 
+ONE AND EACH PASSING YEAR THE PRICE OF BOTTLE INCREASE BY PRICE*YEAR SO FIND
+THE MAXIMUM PROFIT WHEN WE SELL ALL BOTTELS*/
+
+#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+
+ll maxProfit(ll a[],ll i,ll j,ll y)
+{
+	if(i>j)
+	{
+		return 0;
+	}
+	ll op1=a[i]*y + maxProfit(a,i+1,j,y+1);
+	ll op2=a[j]*y+maxProfit(a,i,j-1,y+1);
+	return max(op1,op2);
+}
+int main()
+{
+	ll n;
+	cin>>n;
+	ll a[n];
+	for(ll i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	cout<<maxProfit(a,0,n-1,1);
+}
